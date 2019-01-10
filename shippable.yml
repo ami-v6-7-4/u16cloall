@@ -7,7 +7,7 @@ build:
       
   ci:
     - lein version
-    - echo "(print *clojure-version*)"
+    - echo "(print *clojure-version*)" > clojure.main
     - clj clojure.main
     
 integrations:
