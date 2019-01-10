@@ -1,26 +1,15 @@
 language: clojure
 
 lein:
- - 1.3.0
- - 1.4.0
- - 1.5.1
- - 1.6.0
- - 1.7.0
- - 1.8.0
- - 1.9.0
+  - 1.9.0
   
 build:
       
   ci:
     - lein version
     - echo "(print *clojure-version*)" 
-    #- clj clojure.main
-    #- java -jar /root/lib/clojure-1.8.0.jar clojure.main
-    #- java -jar /root/lib/clojure-1.7.0.jar clojure.main
-    #- java -jar /root/lib/clojure-1.6.0.jar clojure.main
-    #- java -jar /root/lib/clojure-1.5.1.jar clojure.main
-    #- java -jar /root/lib/clojure-1.4.0.jar clojure.main
-    #- java -jar /root/lib/clojure-1.3.0.jar clojure.main
+    - clj clojure.main
+    - java -jar /root/lib/clojure-1.9.0.jar clojure.main
     - docker pull shippabledocker/sample_node_pvt:ecr
     
 integrations:
@@ -29,24 +18,3 @@ integrations:
  #Docker integration
     - integrationName: ship-docker
       type: dockerRegistryLogin
-  #GCR integration
-   # - integrationName: ship-gcr
-    #  type: gcr
- # #ECR integration
-    #- integrationName: ship-ecr
-    #  type: ecr
-     # region: us-west-2
-    #  branches: #Testing the wildcards for branches exclude
-      #  except:
-       #   - n*
-    #- integrationName: ship-ecreast1
-    #  type: ecr
-    #  region: us-east-1
-  #Quay.io integration    
-    #- integrationName: ship-quay
-    #  type: quay.io
-
-  #ecr with new integration using "hub" tag in integrations
-    #- integrationName: awskeys
-    #  type: amazonKeys      
-    #  region: us-west-2  
